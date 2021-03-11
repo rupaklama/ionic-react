@@ -4,14 +4,19 @@ import {
   IonHeader,
   IonToolbar,
   IonTitle,
-  IonInput,
   IonItem,
   IonLabel,
+  IonDatetime,
 } from '@ionic/react';
 import React, { useState } from 'react';
+import BiorhythmCard from './components/BiorhythmCard';
 
 function App() {
-  const [name, setName] = useState('');
+  const [birthDate, setBirthDate] = useState('');
+
+  // The toISOString() method converts a Date object into a STRING, using the ISO standard.
+  // The standard is called ISO-8601 and the format is: YYYY-MM-DDTHH:mm:ss.sssZ
+  const targetDate = new Date().toISOString();
 
   return (
     <IonApp>
@@ -21,16 +26,20 @@ function App() {
         </IonToolbar>
       </IonHeader>
       <IonContent className='ion-padding'>
-        <IonItem>
-          <IonLabel>Name:</IonLabel>
-
-          {/* Ionic default input type is 'text' 
+        {/* Ionic default input type is 'text' 
               In Ionic, onChange === onIonChange because of IonInput component
               e.target === e.detail
           */}
-          <IonInput value={name} onIonChange={e => setName(e.detail.value)} />
+        <IonItem>
+          <IonLabel position='stacked'>Date of Birth:</IonLabel>
+          {/* IonDatetime  is default to US date & time */}
+          <IonDatetime
+            value={birthDate}
+            onIonChange={e => setBirthDate(e.detail.value)}
+          />
         </IonItem>
-        <p>Name: {name} </p>
+
+        <BiorhythmCard targetDate={targetDate} />
       </IonContent>
     </IonApp>
   );
