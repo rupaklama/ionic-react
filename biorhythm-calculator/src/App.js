@@ -10,13 +10,20 @@ import {
 } from '@ionic/react';
 import React, { useState } from 'react';
 import BiorhythmCard from './components/BiorhythmCard';
+import { useLocalStorage } from './hooks';
 
 function App() {
-  const [birthDate, setBirthDate] = useState('');
+  // This custom hook also works as a useState & also saves value to local storage
+  // set initial value to be local storage's default value
+  const [birthDate, setBirthDate] = useLocalStorage('birthDate', ''); // key / default value
+  console.log(birthDate);
+  console.log(setBirthDate);
+
+  const [targetDate, setTargetDate] = useState(new Date().toISOString());
 
   // The toISOString() method converts a Date object into a STRING, using the ISO standard.
   // The standard is called ISO-8601 and the format is: YYYY-MM-DDTHH:mm:ss.sssZ
-  const targetDate = new Date().toISOString();
+  // const targetDate = new Date().toISOString();
 
   return (
     <IonApp>
@@ -39,7 +46,17 @@ function App() {
           />
         </IonItem>
 
-        <BiorhythmCard targetDate={targetDate} />
+        <IonItem>
+          <IonLabel position='stacked'>Target Date:</IonLabel>
+          <IonDatetime
+            value={targetDate}
+            onIonChange={e => setTargetDate(e.detail.value)}
+          />
+        </IonItem>
+
+        {birthDate && (
+          <BiorhythmCard birthDate={birthDate} targetDate={targetDate} />
+        )}
       </IonContent>
     </IonApp>
   );

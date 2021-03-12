@@ -8,12 +8,17 @@ import {
 } from '@ionic/react';
 import React from 'react';
 
+import { calculateBiorhythm } from '../calculation';
+import BiorhythmChart from './BiorhythmChart';
+
 // to format date with dayjs
 const formatDate = isoString => {
   return dayjs(isoString).format('MMM D YYYY');
 };
 
-const BiorhythmCard = ({ targetDate }) => {
+const BiorhythmCard = ({ birthDate, targetDate }) => {
+  const physical = calculateBiorhythm(birthDate, targetDate);
+
   return (
     <IonCard className='ion-text-center'>
       <IonCardHeader>
@@ -21,9 +26,8 @@ const BiorhythmCard = ({ targetDate }) => {
       </IonCardHeader>
 
       <IonCardContent>
-        <p>Physical: 83%</p>
-        <p>Emotional: 83%</p>
-        <p>Intellectual: 83%</p>
+        <BiorhythmChart />
+        <p>Physical: {physical.toFixed(4)} </p>
       </IonCardContent>
     </IonCard>
   );
