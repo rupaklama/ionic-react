@@ -1,0 +1,4 @@
+/* nested css class within top level css class - name as same component */
+.biorhythm-card .physical {
+  color: green;
+}
