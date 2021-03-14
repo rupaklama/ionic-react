@@ -29,7 +29,7 @@ function App() {
     <IonApp>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Biorhythms</IonTitle>
+          <IonTitle>Rupak Biorhythms</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className='ion-padding'>

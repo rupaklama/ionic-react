@@ -1,3 +1,5 @@
+import { Plugins } from '@capacitor/core';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -18,6 +20,16 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
+
+// api
+const { SplashScreen } = Plugins;
+/// An app splash screen is an introductory screen that appears while your application loads in the background.
+// You may see the company logo accompanied by some text or more imagery that enhances a user's first impression
+
+// Hide the splash (you should do this on app launch)
+// Basically telling Capacitor our App is ready to be displayed
+// you can hide the Splash Screen now
+SplashScreen.hide();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
