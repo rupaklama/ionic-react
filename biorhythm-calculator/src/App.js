@@ -29,7 +29,7 @@ function App() {
     <IonApp>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Rupak Biorhythms</IonTitle>
+          <IonTitle>Biorhythms</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className='ion-padding'>
@@ -38,7 +38,7 @@ function App() {
               e.target === e.detail
           */}
         <IonItem>
-          <IonLabel position='stacked'>Date of Birth:</IonLabel>
+          <IonLabel position='stacked'>Birth Date:</IonLabel>
           {/* IonDatetime  is default to US date & time */}
           <IonDatetime
             value={birthDate}

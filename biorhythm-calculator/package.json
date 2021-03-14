@@ -12,7 +12,9 @@
     "@capacitor/core": "2.4.7",
     "@capacitor/ios": "2.4.7",
     "@ionic/react": "^5.0.5",
+    "cocoapods": "0.0.0",
     "ionicons": "^5.0.1",
+    "pod-install": "^0.1.18",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "recharts": "^2.0.8"
