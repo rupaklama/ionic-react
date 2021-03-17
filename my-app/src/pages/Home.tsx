@@ -5,24 +5,25 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+
 import './Home.css';
 
+function formatMoney(amount: number) {
+  return '$' + amount.toFixed(2);
+}
+
 const Home: React.FC = () => {
+  const balance = 123;
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Ionic App</IonTitle>
+          <IonTitle>My Ionic App</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse='condense'>
-          <IonToolbar>
-            <IonTitle size='large'>Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
+      <IonContent className='ion-padding'>
+        Your balance is {formatMoney(balance)}
       </IonContent>
     </IonPage>
   );
